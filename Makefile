@@ -1,4 +1,4 @@
-PROTOS := $(wildcard proto/**/*.proto)
+PROTOS := proto/*.proto
 OUT_DIR := .
 
 generate:
@@ -7,4 +7,4 @@ generate:
 
 clean:
 	del /S /Q .\proto\*.pb.go
-	del /S /Q .\proto\*_grpc.pb.go
+
