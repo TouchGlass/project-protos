@@ -20,6 +20,8 @@ message CreateUserResponse {
 message UpdateUserRequest {
   uint32 id = 1;
   string email = 2;
+  string password = 3;
+
 }
 message UpdateUserResponse {
   User user = 1;
