@@ -6,10 +6,12 @@ option go_package = "github.com/TouchGlass/project-protos/proto/user";
 message User {
   uint32 id = 1;
   string email = 2;
+  string password = 3;
 }
 
 message CreateUserRequest {
   string email = 1;
+  string password = 2;
 }
 message CreateUserResponse {
   User user = 1;
