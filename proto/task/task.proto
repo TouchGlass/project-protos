@@ -6,13 +6,24 @@ option go_package = "github.com/TouchGlass/project-protos/proto/task";
 message Task {
   uint32 id = 1;
   string title = 2;
+  uint32 userId = 3;
 }
 
 message CreateTaskRequest {
   string title = 1;
+  uint32 userId = 2;
 }
 message CreateTaskResponse {
   Task task = 1;
+}
+
+message ListTasksRequest {}
+message ListTasksResponse {
+  repeated Task tasks = 1;
+}
+
+message GetTaskRequest {
+  uint32 id = 1;
 }
 
 message UpdateTaskRequest {
@@ -30,15 +41,12 @@ message DeleteTaskResponse {
   bool success = 1;
 }
 
-message ListTasksRequest {}
-message ListTasksResponse {
-  repeated Task tasks = 1;
-}
+
 
 service TaskService {
   rpc CreateTask (CreateTaskRequest) returns (CreateTaskResponse);
-  rpc GetTask (Task) returns (Task);
+  rpc GetTask (GetTaskRequest) returns (Task);
+  rpc ListTasks (ListTasksRequest) returns (ListTasksResponse);
   rpc UpdateTask (UpdateTaskRequest) returns (UpdateTaskResponse);
   rpc DeleteTask (DeleteTaskRequest) returns (DeleteTaskResponse);
-  rpc ListTasks (ListTasksRequest) returns (ListTasksResponse);
 }
