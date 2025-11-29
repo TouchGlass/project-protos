@@ -37,6 +37,7 @@ message UpdateTaskRequest {
   uint32 id = 1;
   string title = 2;
   bool isDone = 3;
+  uint32 userId = 4;
 }
 message UpdateTaskResponse {
   Task task = 1;
